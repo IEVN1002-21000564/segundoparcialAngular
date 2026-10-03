@@ -1,0 +1,56 @@
+<div class="container" style="display: flex; gap: 30px; align-items: flex-start; padding: 20px;">
+  
+  <!-- Columna Izquierda: Formulario -->
+  <div style="flex: 1;">
+    <h1>ZODIACO CHINO</h1>
+    <section>
+      <h3>Datos Personales</h3>
+      <form>
+        <label for="fname">Nombre:</label><br>
+        <input type="text" [(ngModel)]="nombre" name="nombre" id="fname" placeholder="Ingresar Nombre"><br>
+
+        <label for="apaterno">Apaterno:</label><br>
+        <input type="text" [(ngModel)]="aPaterno" name="aPaterno" id="apaterno" placeholder="Ingresar Apellido P"><br>
+
+        <label for="amaterno">Amaterno:</label><br>
+        <input type="text" [(ngModel)]="aMaterno" name="aMaterno" id="amaterno" placeholder="Ingresar Apellido M"><br>
+        <br>
+
+        <h4>Fecha de nacimiento</h4>
+        <label for="dia">Día</label><br>
+        <input type="number" [(ngModel)]="dia" name="dia" id="dia"><br>
+
+        <label for="mes">Mes</label><br>
+        <input type="number" [(ngModel)]="mes" name="mes" id="mes"><br>
+
+        <label for="anio">Año</label><br>
+        <input type="number" [(ngModel)]="anio" name="anio" id="anio"><br>
+
+        <h4>Sexo</h4>
+        <input type="radio" [(ngModel)]="sexo" name="sexo" value="Masculino" id="sexoM"> Masculino
+        <input type="radio" [(ngModel)]="sexo" name="sexo" value="Femenino" id="sexoF"> Femenino
+        <br><br>
+
+        <button type="button" (click)="imprimir()">Imprimir</button>
+      </form>
+    </section>
+  </div>
+
+  <div style="width: 2px; background-color: #ccc; align-self: stretch;"></div>
+
+
+  <div style="flex: 1;" *ngIf="mostrarResultado">
+    <section>
+      <p>Hola <strong>{{ nombreCompleto }}</strong></p>
+      <p>Sexo: <strong>{{ sexo }}</strong></p>
+      <p>Tienes <strong>{{ edad }}</strong> años</p>
+      <p>Tu fecha de nacimiento es: <strong>{{ dia }}/{{ mes }}/{{ anio }}</strong></p>
+      
+      <p>Tu signo zodiacal chino por año y tu signo zodiacal por mes es <strong>{{ signoMes }}</strong></p>
+      <p>
+        <img [src]="imagenMes" [alt]="signoMes" width="400">
+      </p>
+    </section>
+  </div>
+
+</div>
