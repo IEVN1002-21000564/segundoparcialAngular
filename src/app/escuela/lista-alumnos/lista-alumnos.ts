@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IAlumno } from '../alumno';
+import { Alumno } from '../alumno';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
  
 @Component({
@@ -11,8 +11,8 @@ import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angul
 export class ListaAlumnos implements OnInit {
   formulario!: FormGroup;
  
-  alumnos: IAlumno[] = [];
-  nuevoAlumno: IAlumno = {
+  alumnos: Alumno[] = [];
+  nuevoAlumno: Alumno = {
     matricula: '',
     nombre: '',
     correo: '',
@@ -28,7 +28,7 @@ export class ListaAlumnos implements OnInit {
     });
   }
  
-muestraAlumnos(): void {
+    muestraAlumnos(): void {
     this.nuevoAlumno.matricula = this.formulario.value.matricula;
     this.nuevoAlumno.nombre = this.formulario.value.nombre;
     this.nuevoAlumno.correo = this.formulario.value.correo;
